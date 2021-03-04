@@ -190,7 +190,7 @@ import {MenuItem} from 'primeng/api';
 * En ***app.module.ts***, ya no es necesario importar  el ***PrimeNgModule***, porque el mismo fue imporado en ***shared.module.ts***, por lo tanto hay que borrarle la línea:
 
 ```
-  import { PrimeNgModule } from './prime-ng/prime-ng.module';
+ Borrar -->> import { PrimeNgModule } from './prime-ng/prime-ng.module'; <<-- Borrar
 
 ```
 
