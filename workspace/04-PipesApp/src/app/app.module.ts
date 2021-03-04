@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 
 // Módulo personalizado
 import { SharedModule } from './shared/shared.module';
+import { AppRouterModule } from './app-router.module';
 
 
 @NgModule({
@@ -13,6 +14,7 @@ import { SharedModule } from './shared/shared.module';
   ],
   imports: [
     BrowserModule,
+    AppRouterModule,
     SharedModule
   ],
   providers: [],

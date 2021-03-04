@@ -195,18 +195,136 @@ import {MenuItem} from 'primeng/api';
 ```
 
 
+7º Crear un modulo ***appRouter --flat***, el flat es para que no cree la carpeta, sirve para crear las rutas. 
+
+```
+  ng g m appRouter --flat
+
+```
+* Dentro no ocupamos el ***commonModule***, sino que hay que importarle:
+```
+  import { RouterModule } from '@angular/router';
+
+```
+* Ahora hay que crear las páginas que se van a utilizar:
+
+```
+  ng g c ventas/pages/numeros --skipTests -is
+  ng g c ventas/pages/noComunes --skipTests -is
+  ng g c ventas/pages/basicos --skipTests -is
+  ng g c ventas/pages/ordenar --skipTests -is
+  
+```
+* Hay que definir las rutas en el ***app-router.module.ts***
 
 
+```
+import { RouterModule, Routes } from '@angular/router';
+
+const routes:  Routes =[
+  {
+    path: '',
+    component: BasicosComponent,
+    pathMatch: 'full'
+  }
+];
+
+@NgModule({
+  imports: [
+    RouterModule.forRoot( routes )
+  ]
+})
+
+```
+* Completo se veria así:
+
+
+```
+  const routes:  Routes = [
+    {
+      path: '',
+      component: BasicosComponent,
+      pathMatch: 'full'
+    },
+    {
+      path: 'numeros',
+      component: NumerosComponent
+    },
+    {
+      path: 'no-comunes',
+      component: NoComunesComponent
+    },
+    {
+      path: 'ordenar',
+      component: OrdenarComponent
+    },
+    {
+      path: '**',
+      redirectTo: ''
+    }
+  ];
+
+```
+* Estos nuevos módulos, estan definidos en ***ventas.module.ts***, pero no estan siendo exportados para poder  utilizarlos fuera del módulo de ventas.
+
+```
+  exports: [
+    NumerosComponent,
+    NoComunesComponent,
+    BasicosComponent,
+    OrdenarComponent
+  ],
+
+```
+
+* Ahora hay que importar el ***app-router.module.ts***, en el ***app.module.ts***, porque este necesita saber las rutas de la aplicación.
+
+```
+   imports: [
+    BrowserModule,
+    AppRouterModule,
+    SharedModule
+  ],
+
+```
+
+8 º En ***app.compponent.html***, hay que insertar:
+
+```
+  <router-outlet></router-outlet>
+
+```
+
+* Para que funcione desde ***app-router-module.ts*** hay que exportarlo.
+
+```
+  exports:[
+    RouterModule
+  ]
+  
 ```
 
 
 
-```
-```
 
 
 
+
 ```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+```
+
+
 
 ``
 * []()
