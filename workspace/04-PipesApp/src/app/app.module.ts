@@ -1,10 +1,11 @@
-import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 
-// Pime Ng
-import {ButtonModule} from 'primeng/button';
+// Módulo personalizado
+import { SharedModule } from './shared/shared.module';
+
 
 @NgModule({
   declarations: [
@@ -12,7 +13,7 @@ import {ButtonModule} from 'primeng/button';
   ],
   imports: [
     BrowserModule,
-    ButtonModule
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]
