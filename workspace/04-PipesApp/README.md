@@ -1,5 +1,5 @@
 ![Prime Ng](http://primefaces.org/wp-content/uploads/2016/08/primeng-2.png)
-# Pipes App
+# Pipes App: Por Leandro C. Tomassini
 1º Instalar Prime Ng:  
 * [Primefaces](https://primefaces.org/primeng/showcase/#/setup)   
 
