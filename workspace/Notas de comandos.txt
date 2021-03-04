@@ -1,0 +1,1 @@
+ng generated component shared/sidebar --skipTests -is
