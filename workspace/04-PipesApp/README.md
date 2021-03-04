@@ -1,15 +1,23 @@
 # Pipes App
 1º Instalar Prime Ng:  
 * [Primefaces](https://primefaces.org/primeng/showcase/#/setup)  
-   ``` npm install primeng --save     ```
-   ``` npm install primeicons --save  ```
+   ``` 
+    npm install primeng --save 
+    
+   ```
+   ``` 
+    npm install primeicons --save 
+    
+   ```
 * Bajar el servicio de Ng serve, y agregar los temas en el angular.json  
-   ``` "styles": [
+   ``` 
+   "styles": [
                  "src/styles.css",
                  "node_modules/primeicons/primeicons.css",
                 "node_modules/primeng/resources/themes/vela-blue/theme.css",
                 "node_modules/primeng/resources/primeng.min.css"
-               ],```
+               ],
+ ```
 2º En ***app.module***, importar la siguiente línea para utilizar botones:  
     ``` import {ButtonModule} from 'primeng/button';
      imports: [
