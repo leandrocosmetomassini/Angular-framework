@@ -415,12 +415,82 @@ const routes:  Routes =[
   </div>
 ```
 
-10º  
+10º  Para poder utilizar ***Fieldset module***, es necesario importar en el módulo de ***prime-ng.module.ts***, la siguiente línea de código, ya que el objetivo de este módulo es exportar los que yo necesito utilizar:
+
+```
+  import {FieldsetModule} from 'primeng/fieldset';
+
+```
+* También es  importante importar el ***BrowserAnimationsModule***, de Angular para que funcione. Para ello, hay que importar la siguiente línea de código en el ***app.module.ts***:
+
+```
+  import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+   imports: [
+    BrowserModule,
+    BrowserAnimationsModule,
+    AppRouterModule,
+    SharedModule,
+    VentasModule
+  ],
+
+```
+* Ahora ya se puede utilizar el ***p-fieldset***, como en el siguiente ejemplo:
+
+```
+  <div class="p-grid">
+
+    <div class="p-col p-md-6 p-sm-9">
+        <p-fieldset legend="Header" [toggleable]="true">
+            Content
+        </p-fieldset>
+    </div>
+
+</div>
+
+```
+* Documentación: [Fieldset](https://primefaces.org/primeng/showcase/#/fieldset).
+
+* Para obtener el efecto del ***splash***, la burbujita al tocar en el botón para ocultar, se necesita una configuración extra. En el archivo ***app.component.ts***, 
+pegar el siguiente código (Inyectar el servicio):
+
+```
+  import { Component, OnInit } from '@angular/core';
+  import { PrimeNGConfig } from 'primeng/api';
+
+  export class AppComponent implements OnInit{
+  
+    constructor(private primeNGConfig: PrimeNGConfig){}
+
+    ngOnInit(){
+      this.primeNGConfig.ripple = true;
+    }
+
+
+  }
+
+```
+
+
+
+
+
 
 ```
 
 ```
+```
 
+```
+```
+
+```
+```
+
+```
+```
+
+```
 ```
 
 ```
