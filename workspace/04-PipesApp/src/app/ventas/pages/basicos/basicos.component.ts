@@ -12,4 +12,6 @@ export class BasicosComponent  {
   nombreUpper: string = 'LEANDRO';
   nombreCompleto: string = 'leAndrO toMaSsini';
 
+  fecha: Date = new Date();
+  
 }
