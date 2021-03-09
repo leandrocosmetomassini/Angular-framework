@@ -6,7 +6,7 @@ import { RegistroComponent } from './pages/registro/registro.component';
 const routes: Routes = [
   {
     path: '',
-    children: [ // Rutas hijas que va a tener
+    children: [
       {
         path: 'login',
         component: LoginComponent
@@ -26,10 +26,10 @@ const routes: Routes = [
 
 @NgModule({
   imports: [
-    RouterModule.forChild(routes)
+    RouterModule.forChild( routes )
   ],
-  exports:[
+  exports: [
     RouterModule
   ]
 })
-export class AuthRouthingModule { }
+export class AuthRoutingModule { }

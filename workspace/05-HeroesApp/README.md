@@ -1,108 +1,27 @@
-# Heroes App
+# HeroesApp
 
-1º Instalar [Angular Material Design](https://material.angular.io/):   
-  ``` 
-    ng add @angular/material
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.2.
 
-  ``` 
+## Development server
 
-2º Ahora para este ejemplo voy a crear varios módulos:
-  
-  ``` 
-    ng g m auth
-    ng g m heroes
-    ng g m material
-  
-    // También componentes
-    ng g c auth/pages/login --skipTests -is
-    ng g c auth/pages/registro --skipTests -is
-    ng g c heroes/pages/agregar --skipTests -is
-    ng g c heroes/pages/buscar --skipTests -is
-    ng g c heroes/pages/heroe --skipTests -is
-    ng g c heroes/pages/home --skipTests -is
-    ng g c heroes/pages/listar --skipTests -is
-    ng g c shared/errorPage --skipTests -is
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-  ``` 
-  
-3º También es necesario crear las rutas principales para la aplicación en el ***app.module.ts***:
+## Code scaffolding
 
-  ``` 
-    ng g m appRouting --flat // --flat para que no cree un directorio y lo coloque en la raíz del proyecto
+Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-  ``` 
+## Build
 
-  * No es necesario que este importado el common module, ya que no voy a utilizar ni pipes, ni *ngFor, etc, tampoco las declarations.
-  ```
-  import { Routes } from '@angular/router';
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
-  const routes: Routes = [
-    {
-        path: '404',
-        component: ErrorPageComponent
-    },
-    {
-        path: '**',
-        component: ErrorPageComponent
-    }
-  ]
-  ``` 
- 
- 4º Para utilizar carga perezosa, ***Lazy Load***, es necesario que en ***auth/***, se cree el siguiente módulo:
-  ``` 
-    ng g m auth/authRouthing --flat
+## Running unit tests
 
-    const routes: Routes = [
-    {
-        path: '',
-        children: [ // Rutas hijas que va a tener
-        {
-            path: 'login',
-            component: LoginComponent
-        },
-        {
-            path: 'registro',
-            component: RegistroComponent
-        },
-        {
-            path: '**',
-            redirectTo: 'login'
-        }
-        ]
-    }
-    ]
+Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
+## Running end-to-end tests
 
-    @NgModule({
-    imports: [
-        RouterModule.forChild(routes)
-    ],
-    exports:[
-        RouterModule
-    ]
-    })
- 
-  ``` 
-* En ***auth.module.ts***, es necesario importar ***AuthRouthingModule***:
-  ``` 
-    @NgModule({
-    declarations: [
-        LoginComponent,
-        RegistroComponent
-    ],
-    imports: [
-        CommonModule,
-        AuthRouthingModule
-    ]
-    })
+Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
-  ``` 
-  * Para que Angular sepa que  ***AuthRouthingModule*** existe, es necesario decirle que cuando alguien navege al auth carge ese módulo. Para que eso pase hay que ir a ***app-routing.module.ts***,  pegar el siguiente código en routes:
-  ``` 
-    {
-     path: 'auth',
-     loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)
-     // Cuando alguien entre al path auth, carge sus hijos, el módulo hijo va a venir de el producto del auth.module, cuando se carge en memoria, el módulo que va a cargar va a ser el AuthModule.
-    },
-  
-  ``` 
+## Further help
+
+To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
